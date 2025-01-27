@@ -59,7 +59,7 @@ TEST_F(DeckTest, ShouldReturnCorrectTopAndBottomValues) {
   EXPECT_EQ(expectedTopCard, topCard);
 }
 
-TEST_F(DeckTest, ShouldShuffleDeck) {
+TEST_F(DeckTest, ShouldShuffleDeckWithoutSeed) {
   const int cardCount = 52;
   Deck<int> shuffledDeck;
   
@@ -83,6 +83,45 @@ TEST_F(DeckTest, ShouldShuffleDeck) {
   }
 
   shuffledDeck.shuffle();
+
+  bool equal = true;
+  EXPECT_EQ(cardCount, deck.size());
+  EXPECT_EQ(cardCount, shuffledDeck.size());
+  for(int i = 0; i < cardCount; ++i)
+  {
+    if(deck[i] != shuffledDeck[i])
+    {
+      equal = false;
+    }
+  }
+
+  EXPECT_FALSE(equal);
+}
+
+TEST_F(DeckTest, ShouldShuffleDeckWithSeed) {
+  const int cardCount = 52;
+  Deck<int> shuffledDeck;
+  
+  // Test decks are empty
+  EXPECT_EQ(0, deck.size());
+  EXPECT_EQ(0, shuffledDeck.size());
+
+  // Add equal amount fo cards to decks
+  for(int i = 0; i < cardCount; ++i)
+  {
+    deck.add(i);
+    shuffledDeck.add(i);
+  }
+
+  // Decks should be identical
+  EXPECT_EQ(cardCount, deck.size());
+  EXPECT_EQ(cardCount, shuffledDeck.size());
+  for(int i = 0; i < cardCount; ++i)
+  {
+    EXPECT_EQ(deck[i], shuffledDeck[i]);
+  }
+
+  shuffledDeck.shuffle(42);
 
   bool equal = true;
   EXPECT_EQ(cardCount, deck.size());
