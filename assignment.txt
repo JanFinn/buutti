@@ -1,0 +1,22 @@
+Deck - container
+Create a container “Deck” that represents a collection of values like a deck of cards.
+The class Deck must be able to contain elements of any one type. (e.g. Deck<int> would be
+a collection of int values)
+The class must fulfill the following criteria:
+- Is a C++ container, as described in
+https://en.cppreference.com/w/cpp/named_req/Container
+- Has the following member functions:
+- top():
+- Returns the “top” value of the deck
+- bottom():
+- Returns the “bottom” value of the deck
+- draw():
+- Returns the "top" value of the deck and removes the value.
+- add(T):
+- Adds a value to the top of the deck
+- shuffle(...):
+- Shuffles the order of the elements in the container
+- It might be useful to be able to give parameters to this function
+- The container may be implemented as an adaptor (i.e. uses another container as its
+storage)
+- Use of the standard library is allowed in general
