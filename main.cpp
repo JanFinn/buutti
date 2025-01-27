@@ -15,42 +15,42 @@ void print_deck(Deck<int> deck)
  
 int main()
 {
+    cout << "Creating deck..." << endl;
     Deck<int> deck;
+    cout << "Deck size is " << deck.size() << endl;
 
     for(int iter = 0; iter < 52; ++iter)
     {
         deck.add(iter);
     }
+    cout << "Full deck size is " << deck.size() << endl;
 
+    cout << "Deck before shuffle: " << endl;
     print_deck(deck);
 
     deck.shuffle();
 
+    cout << "Deck after shuffle: " << endl;
     print_deck(deck);
 
-    size_t size = deck.size();
+    cout << "Deck top value is " << deck.top() << endl;
 
-    cout << "Container size is " << size << endl;
+    cout << "Deck bottom value is " << deck.bottom() << endl;
 
-    auto top = deck.top();
+    cout << "Drew card " << deck.draw() << endl;
 
-    cout << "Container top value is " << top << endl;
+    cout << "Deck top value after draw is " << deck.top() << endl;
 
-    top = deck.draw();
+    cout << "Deck size after draw is " << deck.size() << endl;
 
-    cout << "Container top value is " << top << endl;
+    int newTop = 42;
 
-    size = deck.size();
+    cout << "Adding new card " << newTop << " to deck..." << endl;
 
-    cout << "Container size is " << size << endl;
+    deck.add(42);
 
-    deck.add(43);
+    cout << "Deck top value is " << deck.top() << endl;
 
-    cout << "Container top value is " << top << endl;
-
-    size = deck.size();
-
-    cout << "Container size is " << size << endl;
-    
+    cout << "Deck size after adding is " << deck.size() << endl;    
 }
 

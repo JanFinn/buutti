@@ -21,6 +21,11 @@ add_executable(
   ./tests/deck_test.cpp
 )
 
+add_executable(
+  application
+  main.cpp
+)
+
 add_compile_options(-Wall -Wextra -Wpedantic -Wno-dev)
 
 target_link_libraries(
